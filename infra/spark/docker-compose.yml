@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  spark:  
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    command: tail -f /dev/null 
+    ports:
+      - '4040:4040'
+    volumes:
+      - ./:/app/
+    privileged: true
+    deploy:
+      resources:
+        limits:
+          memory: 8G
